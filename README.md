@@ -1,4 +1,4 @@
-# ![Logo](https://github.com/carla-santos/veganfood/blob/main/img/logo.png) VeganFood
+# ![Logo](https://github.com/carla-santos/veganfood/blob/main/img/logo.png)
 
 [![GitHub contributors](https://img.shields.io/github/contributors/carla-santos/veganfood?color=blue&label=Colaboradores&style=for-the-badge)](https://github.com/carla-santos/veganfood/graphs/contributors)
 [![GitHub forks](https://img.shields.io/github/forks/carla-santos/veganfood?color=green&style=for-the-badge)](https://github.com/carla-santos/veganfood/network/members)
@@ -12,7 +12,6 @@
 - [Como executar o projeto](#como-executar-o-projeto)
    - [Pré-requisitos](#pre-requisitos)
    - [Instalação](#instalacao)    
-- [Licença](#licenca)
 - [Agradecimento](#agradecimento)
 - [Deploy](#deploy)
 - [Changelog](#changelog) 
