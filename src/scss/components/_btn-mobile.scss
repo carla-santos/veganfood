@@ -1,0 +1,36 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.btn-mobile {
+  display: none;
+  border: none;
+  background: none;
+
+  @include m.d(md) {
+    display: block;
+    z-index: 9999;
+  }
+
+  &__icon {
+    width: 4.8rem;
+    height: 4.8rem;
+    color: v.$color-grey-dark-1;
+
+    &[name='close-outline'] {
+      display: none;
+    }
+  }
+}
+
+.nav-active .btn-mobile__icon[name='close-outline'] {
+  display: block;
+  transition: transform 0.8s;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-active .btn-mobile__icon[name='menu-outline'] {
+  display: none;
+}

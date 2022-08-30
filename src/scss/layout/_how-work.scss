@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.how-works {
+  &__grid {
+    @include m.grid(2, 1fr, 4.8rem);
+
+    @include m.d(sm) {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+  }
+
+  &__box {
+    padding: 1.6rem 3.2rem;
+    height: 100%;
+  }
+
+  &__icon {
+    background-color: v.$color-primary-light-1;
+    color: v.$color-primary;
+    font-size: 4.8rem;
+    padding: 1.2rem 2.4rem;
+    border-radius: v.$border-radius-50;
+  }
+
+  &__description {
+    font-size: 2rem;
+    line-height: 1.6;
+
+    @include m.d(md) {
+      font-size: 1.6rem;
+    }
+  }
+}

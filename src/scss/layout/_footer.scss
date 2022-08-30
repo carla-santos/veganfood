@@ -1,0 +1,185 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.footer {
+  padding: 8rem 0;
+  transition: transform 0.3s;
+
+  @include m.d(md) {
+    padding: 3.2rem 0;
+  }
+
+  @include m.d(sm) {
+    padding: 4.8rem 2.4rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3.2rem;
+
+    @include m.d(md) {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 2.4rem;
+      column-gap: 3.2rem;
+    }
+
+    @include m.d(sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr auto;
+      column-gap: 0;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    @include m.d(md) {
+      grid-column: 1/4;
+      grid-row: 2;
+    }
+
+    @include m.d(sm) {
+      grid-row: 3;
+    }
+  }
+
+  &__logo {
+    height: 8.4rem;
+
+    @include m.d(md) {
+      margin: 0 auto;
+    }
+
+    @include m.d(sm) {
+      margin: unset;
+    }
+  }
+
+  & .sociais {
+    display: flex;
+    gap: 2rem;
+
+    @include m.d(md) {
+      justify-content: center;
+    }
+
+    @include m.d(sm) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__copy {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.2rem;
+
+    @include m.d(md) {
+      justify-content: center;
+    }
+
+    @include m.d(sm) {
+      justify-content: flex-start;
+    }
+
+    & .copyright {
+      color: v.$color-primary-dark-2;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      margin-top: 4.8rem;
+
+      @include m.d(md) {
+        margin-top: 3.2rem;
+      }
+
+      & span {
+        font-weight: 700;
+      }
+    }
+
+    & .github:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  & .apresentation {
+    @include m.d(md) {
+      grid-column: 2/-1;
+    }
+
+    @include m.d(sm) {
+      grid-row: 1;
+    }
+  }
+
+  &__link:link {
+    color: inherit;
+  }
+
+  &__link:visited {
+    color: v.$color-primary-dark-1;
+  }
+
+  & .icon__redes,
+  .icon__pay {
+    font-size: 3.2rem;
+  }
+
+  & .icon__redes[name='logo-instagram'] {
+    color: #c837ab;
+  }
+
+  & .icon__redes[name='logo-twitter'] {
+    color: #2ab4e4;
+  }
+
+  & .icon__redes[name='logo-facebook'] {
+    color: #097eeb;
+  }
+
+  & .icon__redes[name='logo-whatsapp'] {
+    color: #00e676;
+  }
+
+  & .heading__footer {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 2rem 0;
+  }
+
+  & contacts {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-style: normal;
+  }
+
+  & .payments {
+    @include m.d(md) {
+      grid-column: 5/-1;
+      grid-row: 2;
+    }
+
+    @include m.d(sm) {
+      grid-row: 2;
+    }
+  }
+
+  & .payment {
+    display: flex;
+    gap: 1.6rem;
+  }
+
+  & .icon__pay[name='logo-paypal'] {
+    color: #27346a;
+  }
+
+  & .icon__pay[name='cash-outline'] {
+    color: v.$color-primary-dark-1;
+  }
+
+  & .icon__pay[name='card-outline'] {
+    color: v.$color-grey-dark-2;
+  }
+}

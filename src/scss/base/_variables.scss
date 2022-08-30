@@ -1,0 +1,52 @@
+// Cores
+$color-primary: #445c3c;
+$color-primary-light-1: #ecefec;
+$color-primary-light-2: #daded8;
+$color-primary-light-3: #c7cec5;
+$color-primary-dark-1: #31382f;
+$color-primary-dark-2: #141c12;
+
+$color-grey: #555;
+$color-grey-light-1: #888;
+$color-grey-light-2: #aaa;
+$color-grey-dark-1: #444;
+$color-grey-dark-2: #222;
+
+$color-white: #fff;
+$color-black: #000;
+
+// Tipografia
+$font-family-body: 'Raleway', sans-serif;
+$font-size-base: 62.5%;
+$font-size-body: 1.6rem;
+$font-weight-normal: 400;
+$line-height-base: 1.5;
+$line-height-sm: 1.2;
+$line-height-lg: 1.8;
+$letter-spacing-base: 0.75px;
+$letter-spacing-sm: -0.5px;
+
+// heading
+$font-size-h1: 5.2rem;
+$font-size-h2: 3.6rem;
+$font-size-h3: 2.4rem;
+
+// Bordas
+$border-radius-50: 50%;
+$border-radius: 1rem;
+
+// Sombra
+$box-shadow: 0 2rem 4.8rem rgba(0, 0, 0, 0.07);
+
+// Media queries
+$devices: (
+  'sm': 588px,
+  'md': 788px,
+  'lg': 960px,
+  'xl': 1200px,
+  'xxl': 1360px,
+);
+
+// Grid
+$max-width-container: 120rem;
+$grid-gutter: 2rem;

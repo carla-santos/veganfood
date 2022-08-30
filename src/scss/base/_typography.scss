@@ -1,0 +1,76 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+%heading {
+  color: v.$color-grey-dark-2;
+  font-weight: 700;
+  letter-spacing: v.$letter-spacing-sm;
+}
+
+.heading-primary {
+  @extend %heading;
+  font-size: v.$font-size-h1;
+  line-height: v.$line-height-sm;
+
+  @include m.d(xxl) {
+    font-size: 4.4rem;
+  }
+
+  @include m.d(sm) {
+    font-size: 3.6rem;
+  }
+}
+
+.heading-secondary {
+  @extend %heading;
+  font-size: v.$font-size-h2;
+  line-height: v.$line-height-sm;
+
+  @include m.d(lg) {
+    font-size: 3rem;
+  }
+
+  @include m.d(md) {
+    font-size: 2.4rem;
+  }
+}
+
+.heading-tertiary {
+  @extend %heading;
+  font-size: v.$font-size-h3;
+
+  @include m.d(xl) {
+    font-size: 2rem;
+  }
+}
+
+.subheading,
+.subheading--section {
+  display: block;
+  color: v.$color-primary-dark-1;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: v.$letter-spacing-base;
+  text-transform: uppercase;
+}
+
+.subheading::after,
+.subheading--section::after {
+  content: '';
+  display: block;
+  width: 5rem;
+  height: 0.3rem;
+  background-color: v.$color-primary;
+}
+
+.subheading::after {
+  margin: 0.8rem auto;
+
+  @include m.d(lg) {
+    margin: 0.8rem auto;
+  }
+}
+
+.subheading--section::after {
+  margin: 0.8rem 0;
+}

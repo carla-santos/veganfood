@@ -1,0 +1,111 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.newsletter {
+  padding: 9.6rem 3.2rem;
+  background-color: v.$color-primary-light-1;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 6.1rem;
+    row-gap: 6.4rem;
+
+    @include m.d(sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr auto;
+      column-gap: 0;
+      row-gap: 4.8rem;
+    }
+  }
+
+  &__box {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    align-items: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    @include m.d(sm) {
+      gap: 2.4rem;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    & input {
+      color: inherit;
+      font-family: inherit;
+      padding: 0.8rem;
+      border-radius: v.$border-radius;
+      border: 2px solid v.$color-primary;
+
+      @include m.d(sm) {
+        padding: 1.6rem 1.8rem;
+        width: 100%;
+      }
+
+      &::placeholder {
+        color: v.$color-primary-dark-1;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+.blog {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  &__list li:last-child {
+    margin-bottom: 0;
+  }
+
+  &__link:link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__link:visited {
+    color: v.$color-primary-dark-1;
+  }
+
+  &__link:hover,
+  &__link:active {
+    color: v.$color-primary-dark-2;
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+}
+
+.newsletter__redes {
+  grid-column: 2 / -1;
+  justify-self: center;
+
+  @include m.d(sm) {
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+    margin: 0;
+    padding: 0;
+    justify-self: flex-start;
+  }
+}
+
+.insta {
+  max-width: 30rem;
+}

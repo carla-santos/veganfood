@@ -1,0 +1,94 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.recipe {
+  &__grid {
+    @include m.grid(3, 1fr, 4.8rem);
+
+    @include m.d(md) {
+      @include m.grid(2, 1fr, 3.2rem);
+    }
+
+    @include m.d(sm) {
+      grid-template-columns: 1fr;
+      gap: 2.4rem;
+    }
+  }
+
+  &__box {
+    border-radius: v.$border-radius;
+    box-shadow: v.$box-shadow;
+    transition: all 0.4s;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-1.4rem);
+      box-shadow: 0 3.4rem 6.4rem rgba(0, 0, 0, 0.06);
+    }
+
+    &:last-child {
+      margin-bottom: 4.8rem;
+    }
+
+    @include m.d(md) {
+      text-align: center;
+    }
+  }
+
+  &__description {
+    padding: 4.4rem 1.6rem;
+
+    @include m.d(lg) {
+      padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+    }
+  }
+
+  &__time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include m.d(md) {
+      justify-content: center;
+    }
+  }
+
+  &__icon {
+    color: v.$color-primary;
+    font-size: 2.4rem;
+  }
+
+  &__time__number {
+    font-size: 1.4rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+}
+
+.all-recipes {
+  font-size: 1.8rem;
+
+  @include m.d(md) {
+    margin-top: 4.8rem;
+  }
+}
+
+.recipe__link:link {
+  display: inline-block;
+  color: v.$color-primary;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+}
+
+.recipe__link:visited {
+  color: v.$color-primary-dark-1;
+}
+
+.recipe__link:hover,
+.recipe__link:active {
+  color: v.$color-primary-dark-2;
+  border-bottom: 1px solid transparent;
+}

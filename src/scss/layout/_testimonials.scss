@@ -1,0 +1,89 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.testimonials {
+  background-color: v.$color-primary-light-1;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  align-items: center;
+
+  @include m.d(lg) {
+    grid-template-columns: 1fr;
+  }
+
+  &__container {
+    padding: 9.6rem;
+
+    @include m.d(xl) {
+      padding: 9.6rem 3rem;
+    }
+
+    @include m.d(lg) {
+      padding: 4.8rem 3rem;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 6.4rem;
+    row-gap: 4.8rem;
+
+    @include m.d(sm) {
+      grid-template-columns: 1fr;
+      gap: 2.4rem;
+    }
+  }
+}
+
+.testimonial__img {
+  border-radius: v.$border-radius-50;
+  width: 6.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.testimonials__description {
+  color: v.$color-grey-dark-1;
+
+  &::before,
+  &::after {
+    content: '\201c';
+    color: v.$color-primary-dark-1;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}
+
+.testimonials__name {
+  color: v.$color-grey-dark-2;
+  font-weight: 500;
+}
+
+.testimonials__gallery {
+  @include m.grid(3, 1fr, 1.6rem);
+  padding: 1.6rem;
+
+  @include m.d(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include m.d(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery__box {
+  border-radius: v.$border-radius;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    transition: all 0.3s;
+    opacity: 0.7;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}

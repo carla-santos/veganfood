@@ -1,0 +1,40 @@
+@use 'variables' as v;
+
+@mixin display-button($bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
+}
+
+@mixin d($size) {
+  @media only screen and (max-width: map-get(v.$devices, $size)) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 90vw;
+  width: clamp(2.56rem, 90vw, 120rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  position: relative;
+}
+
+@mixin flex($flex-direction: null, $gutter: null) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $flex-direction;
+  gap: $gutter;
+}
+
+@mixin flex-complete-center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid($cols: null, $size: null, $space: null) {
+  display: grid;
+  grid-template-columns: repeat($cols, $size);
+  gap: $space;
+}
