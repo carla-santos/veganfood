@@ -24,7 +24,7 @@ O projeto **VeganFood** foi desenvolvido como uma forma de praticar **HTML5, CSS
 à qual os clientes poderão escolher dentre uma lista de opções os alimentos que mais gostam e assim serão montadas suas refeições pela equipe de Nutricionistas e, 
 posteriormente, entregues a sua casa. Possui 2 planos: Básico e Premium. O projeto foi desenvolvido com HTML Semântico, CSS3 com Flexbox e CSS Grid, 
 metodologia BEM (Block Element Modifier) para nomear classes e vanilla Javascript para fazer os seguintes efeitos: Menu mobile, rolagem suave(smooth scroll),
-menu scroll fixo e animação ao Scroll.
+menu scroll fixo e animação ao Scroll. Esse projeto teve como base o curso [Build Responsive Real-World Websites with HTML and CSS](https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/) do professor **Jonas Schmedtmann**
 
 - Utilizei como base [7-1 architecture pattern](https://github.com/KittyGiraudel/sass-boilerplate) para criar os arquivos do SASS dentro do diretório **src/scss**. Lá consta um arquivo principal chamado **main.scss** que tem a função de importar os arquivos parciais dentro de sua respectiva pasta.
 - Em cada pasta, consta um arquivo **index.scss** que lista cada um dos outros arquivos, no mesmo diretório, que vão ser incluídos na importação.
