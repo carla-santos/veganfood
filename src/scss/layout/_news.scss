@@ -26,40 +26,40 @@
     gap: 2.4rem;
     align-items: center;
   }
+}
 
-  &__form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+.newsletter__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 
-    @include m.d(sm) {
-      gap: 2.4rem;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    & input {
-      color: inherit;
-      font-family: inherit;
-      padding: 0.8rem;
-      border-radius: v.$border-radius;
-      border: 2px solid v.$color-primary;
-
-      @include m.d(sm) {
-        padding: 1.6rem 1.8rem;
-        width: 100%;
-      }
-
-      &::placeholder {
-        color: v.$color-primary-dark-1;
-      }
-
-      &:focus {
-        outline: none;
-        border-color: transparent;
-      }
-    }
+  @include m.d(sm) {
+    gap: 2.4rem;
+    flex-direction: column;
+    width: 100%;
   }
+}
+
+.newsletter__form input {
+  color: inherit;
+  font-family: inherit;
+  padding: 0.8rem;
+  border-radius: v.$border-radius;
+  border: 2px solid v.$color-primary;
+
+  @include m.d(sm) {
+    padding: 1.6rem 1.8rem;
+    width: 100%;
+  }
+}
+
+.newsletter__form input::placeholder {
+  color: v.$color-primary-dark-1;
+}
+
+.newsletter__form input::focus {
+  outline: none;
+  border-color: transparent;
 }
 
 .blog {

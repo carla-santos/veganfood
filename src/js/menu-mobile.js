@@ -1,10 +1,28 @@
 'use strict';
 
-const btnMobile = document.querySelector('.js-btn-mobile');
-const mainHeader = document.querySelector('.main-header');
+function initMenuMobile() {
+  const btnMobile = document.querySelector('[data-menu="button"]');
+  const mainNav = document.querySelector('[data-menu="nav"]');
+  const eventos = ['click', 'touchstart'];
 
-const mostrarMenu = function () {
-  mainHeader.classList.toggle('nav-active');
-};
+  if (btnMobile) {
+    const mostrarMenu = function (e) {
+      if (e.type === 'touchstart') {
+        e.preventDefault();
+      }
 
-btnMobile.addEventListener('click', mostrarMenu);
+      mainNav.classList.toggle('nav-active');
+      const active = mainNav.classList.contains('nav-active');
+      this.setAttribute('aria-expanded', active);
+
+      if (active) {
+        this.setAttribute('aria-label', 'Fechar Menu');
+      } else {
+        this.setAttribute('aria-label', 'Abrir Menu');
+      }
+    };
+
+    eventos.forEach((evento) => btnMobile.addEventListener(evento, mostrarMenu));
+  }
+}
+initMenuMobile();

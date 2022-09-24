@@ -2,129 +2,53 @@
 @use 'base/mixins' as m;
 
 .footer {
-  padding: 8rem 0;
+  padding: 4.8rem 0;
   transition: transform 0.3s;
-
-  @include m.d(md) {
-    padding: 3.2rem 0;
-  }
-
-  @include m.d(sm) {
-    padding: 4.8rem 2.4rem;
-  }
+  display: flex;
+  flex-direction: column;
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 3.2rem;
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
+    border-bottom: 1px solid #eee;
 
-    @include m.d(md) {
+    @include m.d(xl) {
+      column-gap: 4.8rem;
+      row-gap: 6.4rem;
+    }
+
+    @include m.d(lg) {
       grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      row-gap: 2.4rem;
-      column-gap: 3.2rem;
     }
-
-    @include m.d(sm) {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr auto;
-      column-gap: 0;
-    }
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
 
     @include m.d(md) {
-      grid-column: 1/4;
-      grid-row: 2;
-    }
-
-    @include m.d(sm) {
-      grid-row: 3;
+      row-gap: 4.8rem;
     }
   }
+}
 
-  &__logo {
-    height: 8.4rem;
+.logo-col {
+  display: flex;
+  flex-direction: column;
 
-    @include m.d(md) {
-      margin: 0 auto;
-    }
-
-    @include m.d(sm) {
-      margin: unset;
-    }
+  @include m.d(lg) {
+    grid-column: span 3;
   }
+}
 
-  & .sociais {
-    display: flex;
-    gap: 2rem;
+.footer__logo {
+  margin-bottom: 3.2rem;
+}
 
-    @include m.d(md) {
-      justify-content: center;
-    }
+.social-links {
+  display: flex;
+  gap: 2.4rem;
+  margin-top: 2.4rem;
 
-    @include m.d(sm) {
-      justify-content: flex-start;
-    }
-  }
-
-  &__copy {
-    display: flex;
-    align-items: flex-end;
-    gap: 1.2rem;
-
-    @include m.d(md) {
-      justify-content: center;
-    }
-
-    @include m.d(sm) {
-      justify-content: flex-start;
-    }
-
-    & .copyright {
-      color: v.$color-primary-dark-2;
-      font-size: 1.4rem;
-      line-height: 1.6rem;
-      margin-top: 4.8rem;
-
-      @include m.d(md) {
-        margin-top: 3.2rem;
-      }
-
-      & span {
-        font-weight: 700;
-      }
-    }
-
-    & .github:hover {
-      transform: scale(1.2);
-    }
-  }
-
-  & .apresentation {
-    @include m.d(md) {
-      grid-column: 2/-1;
-    }
-
-    @include m.d(sm) {
-      grid-row: 1;
-    }
-  }
-
-  &__link:link {
-    color: inherit;
-  }
-
-  &__link:visited {
-    color: v.$color-primary-dark-1;
-  }
-
-  & .icon__redes,
-  .icon__pay {
-    font-size: 3.2rem;
+  & .icon__redes {
+    font-size: 2rem;
   }
 
   & .icon__redes[name='logo-instagram'] {
@@ -142,44 +66,78 @@
   & .icon__redes[name='logo-whatsapp'] {
     color: #00e676;
   }
+}
 
-  & .heading__footer {
-    font-size: 2rem;
-    font-weight: 500;
-    margin: 2rem 0;
+.footer__heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+
+.address-col {
+  @include m.d(lg) {
+    grid-column: span 3;
+  }
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.8rem;
+  line-height: 1.6;
+
+  & .address {
+    margin-bottom: 2.4rem;
+  }
+}
+
+.nav-col {
+  @include m.d(lg) {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
   }
 
-  & contacts {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    font-style: normal;
-  }
-
-  & .payments {
-    @include m.d(md) {
-      grid-column: 5/-1;
-      grid-row: 2;
-    }
-
-    @include m.d(sm) {
-      grid-row: 2;
-    }
-  }
-
-  & .payment {
+  & .footer__nav {
     display: flex;
-    gap: 1.6rem;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}
+
+.footer__link:link,
+.footer__link:visited {
+  font-size: 1.8rem;
+  color: v.$color-grey-light-1;
+  transition: all 0.3s;
+}
+
+.footer__link:hover,
+.footer__link:active {
+  color: v.$color-grey-dark-2;
+}
+
+.footer__copy {
+  padding-top: 6rem;
+  @include m.flex(row, 0.4rem);
+  @include m.flex-complete-center();
+  transition: transform 0.4s;
+  font-size: 1.8rem;
+  line-height: 1.6;
+
+  & span {
+    font-weight: 700;
+
+    @include m.d(md) {
+      margin-top: 1.2rem;
+      display: block;
+    }
   }
 
-  & .icon__pay[name='logo-paypal'] {
-    color: #27346a;
+  & a {
+    align-self: flex-end;
   }
 
-  & .icon__pay[name='cash-outline'] {
-    color: v.$color-primary-dark-1;
-  }
-
-  & .icon__pay[name='card-outline'] {
-    color: v.$color-grey-dark-2;
+  & .github:hover {
+    transform: scale(1.2);
   }
 }

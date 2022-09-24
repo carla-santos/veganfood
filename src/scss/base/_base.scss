@@ -26,6 +26,7 @@ body {
   font-size: v.$font-size-body;
   font-weight: v.$font-weight-normal;
   line-height: v.$line-height-base;
+  overflow-x: hidden;
 }
 
 ul,
@@ -57,18 +58,9 @@ button {
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.6rem rgba(68, 93, 60, 0.506);
+  box-shadow: 0 0 0 0.4rem rgba(68, 93, 60, 0.506);
 }
 
 .container {
   @include m.container;
-}
-
-.section--fade {
-  transition: transform 1s, opacity 1s;
-}
-
-.section--hidden {
-  opacity: 0;
-  transform: translateY(-8rem);
 }

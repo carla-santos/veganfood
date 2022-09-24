@@ -1,0 +1,86 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.gallery {
+  background-color: v.$color-primary-light-1;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1.6rem;
+  }
+}
+
+.gallery__box {
+  border-radius: v.$border-radius;
+  overflow: hidden;
+  cursor: pointer;
+
+  & .gallery__img {
+    width: 100%;
+    transition: all 0.3s;
+    opacity: 0.7;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+  }
+}
+
+.preview-box {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: v.$color-white;
+  width: min(50rem, 100%);
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: v.$border-radius;
+  padding: 0.5rem;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s ease-in;
+  }
+}
+
+.preview-box__details {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: flex-end;
+}
+
+.preview-box__details [name='close-circle-outline'] {
+  color: v.$color-primary;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+}
+
+.preview-box__image img {
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+
+  &.active {
+    display: block;
+  }
+}

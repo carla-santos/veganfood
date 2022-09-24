@@ -2,19 +2,26 @@
 @use 'base/mixins' as m;
 
 .btn-mobile {
-  display: none;
+  background-color: v.$color-primary-dark-2;
+  border-radius: v.$border-radius;
+  color: v.$color-white;
   border: none;
-  background: none;
+  font-weight: 700;
+  font-size: 2.4rem;
+  padding: 0.8rem 1.6rem;
+  display: none;
+  position: relative;
 
   @include m.d(md) {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     z-index: 9999;
   }
 
   &__icon {
-    width: 4.8rem;
-    height: 4.8rem;
-    color: v.$color-grey-dark-1;
+    height: 3.2rem;
+    width: 3.2rem;
 
     &[name='close-outline'] {
       display: none;
@@ -24,11 +31,6 @@
 
 .nav-active .btn-mobile__icon[name='close-outline'] {
   display: block;
-  transition: transform 0.8s;
-
-  &:hover {
-    transform: rotate(180deg);
-  }
 }
 
 .nav-active .btn-mobile__icon[name='menu-outline'] {

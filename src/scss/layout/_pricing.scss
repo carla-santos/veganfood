@@ -9,62 +9,62 @@
       grid-template-columns: 1fr;
     }
   }
+}
 
-  &__plan {
-    width: 75%;
-    border-radius: v.$border-radius;
-    display: flex;
-    flex-direction: column;
+.pricing__plan {
+  width: 75%;
+  border-radius: v.$border-radius;
+  display: flex;
+  flex-direction: column;
 
-    @include m.d(lg) {
-      width: 90%;
-    }
+  @include m.d(lg) {
+    width: 90%;
+  }
 
-    @include m.d(md) {
-      width: 80%;
-      justify-self: center;
-    }
+  @include m.d(md) {
+    width: 80%;
+    justify-self: center;
+  }
 
-    @include m.d(sm) {
-      width: 100%;
-    }
+  @include m.d(sm) {
+    width: 100%;
+  }
+}
 
-    &--basic {
-      border: 3px solid v.$color-primary-light-1;
-      padding: 4.6rem;
-      justify-self: end;
+.pricing__plan--basic {
+  border: 3px solid v.$color-primary-light-1;
+  padding: 4.6rem;
+  justify-self: flex-end;
 
-      @include m.d(md) {
-        justify-self: center;
-      }
-    }
+  @include m.d(md) {
+    justify-self: center;
+  }
+}
 
-    &--premium {
-      background-color: v.$color-primary-light-1;
-      padding: 4.8rem;
-      position: relative;
-      overflow: hidden;
+.pricing__plan--premium {
+  background-color: v.$color-primary-light-1;
+  padding: 4.8rem;
+  position: relative;
+  overflow: hidden;
 
-      @include m.d(sm) {
-        order: -1;
-      }
+  @include m.d(sm) {
+    order: -1;
+  }
 
-      &::after {
-        content: 'Melhor plano';
-        position: absolute;
-        top: 6%;
-        right: -18%;
-        color: v.$color-grey-dark-1;
-        background-color: #eade91;
-        font-size: 1.4rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        padding: 0.8rem 8rem;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-    }
+  &::after {
+    content: 'Melhor plano';
+    position: absolute;
+    top: 6%;
+    right: -18%;
+    color: v.$color-grey-dark-1;
+    background-color: #eade91;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.8rem 8rem;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 }
 
