@@ -24,12 +24,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- ================= AOS ====================-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <!-- ==================== Estilos CSS ====================-->
   <link rel="preload" href="build/css/style.css" as="style">
   <link rel="stylesheet" href="build/css/style.css">
   <!-- ==================== Javascript ====================-->
   <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
-  <script defer src="build/js/script.min.js"></script>
 </head>
 
 <body>
@@ -38,25 +39,38 @@
       <img class="main-header__logo" src="img/logo.png" alt="Logo do VeganFood">
     </a>
 
-    <nav class="main-nav">
-      <ul class="main-nav__list">
-        <li><a class="main-nav__link" href="#how">Como funciona?</a></li>
-        <li><a class="main-nav__link" href="#recipe">Receitas</a></li>
-        <li><a class="main-nav__link" href="#testimonials">Depoimentos</a></li>
-        <li><a class="main-nav__link" href="#price">Planos</a></li>
-        <li><a class="main-nav__link nav-cta" href="#newsletter">Experimente</a></li>
+    <nav class="main-nav" data-menu="nav">
+      <button class="btn-mobile" data-menu="button" role="button" aria-label="Abrir Menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
+        <ion-icon class="btn-mobile__icon" name="menu-outline"></ion-icon>
+        <ion-icon class="btn-mobile__icon" name="close-outline"></ion-icon>
+      </button>
+
+      <ul id="menu" data-menu="list" class="main-nav__list" role="menu">
+        <li>
+          <a class="main-nav__link" href="#how">Como funciona?</a>
+        </li>
+        <li>
+          <a class="main-nav__link" href="#recipe">Receitas</a>
+        </li>
+        <li>
+          <a class="main-nav__link" href="#gallery">Galeria</a>
+        </li>
+        <li>
+          <a class="main-nav__link" href="#testimonials">Depoimentos</a>
+        </li>
+        <li>
+          <a class="main-nav__link" href="#price">Planos</a>
+        </li>
+        <li>
+          <a class="main-nav__link nav-cta" href="#newsletter">Experimente</a>
+        </li>
       </ul>
     </nav>
-
-    <button class="btn-mobile js-btn-mobile" role="button">
-      <ion-icon class="btn-mobile__icon" name="menu-outline"></ion-icon>
-      <ion-icon class="btn-mobile__icon" name="close-outline"></ion-icon>
-    </button>
   </header>
 
   <section class="hero">
     <div class="hero__container">
-      <div class="hero__box">
+      <div class="hero__box" data-aos="fade-right">
         <h1 class="heading-primary mb--lg">
           Uma refeição vegana saudável entregue ao seu domicílio, todos os dias.
         </h1>
@@ -69,6 +83,7 @@
         <a class="btn btn--secondary" href="#how">
           Mais informações &darr;
         </a>
+
         <div class="hero__box__customers">
           <div class="customers__img">
             <img src="img/customers/customer-1.jpg" alt="Foto de um cliente">
@@ -82,37 +97,42 @@
           </p>
         </div>
       </div>
-      <div class="hero__img__box">
+
+      <div class="hero__img__box" data-aos="fade-down">
         <img class="hero__img" src="img/hero.jpg" alt="Pedaços de laranja, pepino, alface e salsa.">
       </div>
     </div>
   </section>
 
   <main>
-    <section class="how-works py--lg text-center section--fade" id="how">
+    <section class="how-works py--lg text-center" id="how">
       <div class="container">
         <span class="subheading mb--sm">Como funciona?</span>
         <h2 class="heading-secondary mb--xxl">Informações sobre nosso serviço</h2>
       </div>
-      <div class="container how-works__grid">
+
+      <div class="container how-works__grid" data-aos="fade-down">
         <div class="how-works__box">
           <ion-icon class="how-works__icon mb--sm" name="cube-outline"></ion-icon>
           <p class="how-works__description">
             Não perca mais tempo pensando no que comer! Criaremos um kit semanalmente totalmente personalizado para voce.
           </p>
         </div>
+
         <div class="how-works__box">
           <ion-icon class="how-works__icon mb--sm" name="cash-outline"></ion-icon>
           <p class="how-works__description">
             Temos o melhor custo benefício do mercado. Obtenha todos os nutrientes e aprecie a nossa comida feita por especialistas.
           </p>
         </div>
+
         <div class="how-works__box">
           <ion-icon class="how-works__icon mb--sm" name="car-outline"></ion-icon>
           <p class="how-works__description">
             Faça sua assinatura e com o plano premium, estaremos enviando a sua casa em até 2 dias úteis.
           </p>
         </div>
+
         <div class="how-works__box mb--sm">
           <ion-icon class="how-works__icon mb--sm" name="exit-outline"></ion-icon>
           <p class="how-works__description">
@@ -122,7 +142,7 @@
       </div>
     </section>
 
-    <section class="recipe py--lg section--fade" id="recipe">
+    <section class="recipe py--lg" id="recipe">
       <div class="container">
         <span class="subheading--section mb--sm">Receitas</span>
         <h2 class="heading-secondary mb--xxl">
@@ -131,8 +151,9 @@
           receitas de comida vegana para você!
         </h2>
       </div>
+
       <div class="container recipe__grid">
-        <figure class="recipe__box">
+        <figure class="recipe__box" data-aos="flip-left">
           <img class="wd--100" src="img/refeicao/refeicao-1.jpg" alt="Folha de manjericao e abacate no pão">
           <div class="recipe__description">
             <div class="recipe__time">
@@ -144,7 +165,8 @@
             </p>
           </div>
         </figure>
-        <figure class="recipe__box">
+
+        <figure class="recipe__box" data-aos="flip-up">
           <img class="wd--100" src="img/refeicao/refeicao-2.jpg" alt="Salada de tomate com abacate picado e um pouco de milho.">
           <div class="recipe__description">
             <div class="recipe__time">
@@ -156,7 +178,8 @@
             </p>
           </div>
         </figure>
-        <figure class="recipe__box">
+
+        <figure class="recipe__box" data-aos="flip-right">
           <img class="wd--100" src="img/refeicao/refeicao-3.jpg" alt="Salada tropical com vários legumes">
           <div class="recipe__description">
             <div class="recipe__time">
@@ -169,120 +192,186 @@
           </div>
         </figure>
       </div>
+
       <div class="container all-recipes mt--lg text-center">
         <a class="recipe__link" href="#">Veja todas as receitas &rarr;</a>
       </div>
     </section>
 
-    <section class="testimonials section--fade" id="testimonials">
-      <div class="testimonials__container">
-        <span class="subheading--section mb--sm">Depoimentos</span>
-        <h2 class="heading-secondary mb--xxl">Depois de experimentar, você não vai querer sair!</h2>
-        <div class="testimonials__box">
-          <figure>
-            <img class="testimonial__img" src="img/customers/jade.jpg" alt="Foto da cliente Jade Suelen Vaz">
-            <blockquote class="testimonials__description mb--sm">
-              Refeições baratas e como adoro comida vegana, simplesmente amei esse plano da VeganFood. Atualmente sou assinante do plano básico, mas futuramente migrarei para o plano premium.
-            </blockquote>
-            <cite class="testimonials__name">&mdash; Jade Suelen Vaz</cite>
-          </figure>
+    <section class="gallery py--lg" id="gallery">
+      <div class="container">
+        <span class="subheading--section mb--sm">Galeria</span>
+        <h2 class="heading-secondary mb--xxl">Veja nossos pratos</h2>
+      </div>
 
-          <figure>
-            <img class="testimonial__img" src="img/customers/tarique.jpg" alt="Foto do cliente Tarique Layon">
-            <blockquote class="testimonials__description mb--sm">
-              Parabenizo a empresa pelo ótimo serviço prestado, principalmente a comida que é deliciosa. A ideia de escolhermos os nutrientes e vocês montarem a dieta a partir disso é sensacional.
-            </blockquote>
-            <cite class="testimonials__name">&mdash; Tarique Layon</cite>
-          </figure>
+      <div class="container gallery__grid" data-gallery="container">
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-1.jpg" alt="Foto de comida no prato" data-gallery="1" width="400" height="400">
+        </figure>
 
-          <figure>
-            <img class="testimonial__img" src="img/customers/claudio.jpg" alt="Foto do cliente Claudio Oliveira">
-            <blockquote class="testimonials__description mb--sm">
-              VeganFood me salvou. Recentemente, fui promovido a um cargo de direção na empresa em que trabalho e por chegar muito cansado em casa, mal tenho tempo para cozinhar.
-            </blockquote>
-            <cite class="testimonials__name">&mdash; Claudio Oliveira</cite>
-          </figure>
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-2.jpg" alt="Foto de comida no prato" data-gallery="2" width="400" height="400">
+        </figure>
 
-          <figure>
-            <img class="testimonial__img" src="img/customers/barbara.jpg" alt="Foto da cliente Bárbara Lima">
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-3.jpg" alt="Foto de comida no prato" data-gallery="3" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-4.jpg" alt="Foto de comida no prato" data-gallery="4" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-5.jpg" alt="Foto de comida no prato" data-gallery="5" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-6.jpg" alt="Foto de comida no prato" data-gallery="6" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-7.jpg" alt="Foto de comida no prato" data-gallery="7" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-8.jpg" alt="Foto de comida no prato" data-gallery="8" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-9.jpg" alt="Foto de comida no prato" data-gallery="9" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-10.jpg" alt="Foto de comida no prato" data-gallery="10" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-11.jpg" alt="Foto de comida no prato" data-gallery="11" width="400" height="400">
+        </figure>
+
+        <figure class="gallery__box" data-aos="fade-up">
+          <img class="gallery__img" src="img/gallery/gallery-12.jpg" alt="Foto de comida no prato" data-gallery="12" width="400" height="400">
+        </figure>
+      </div>
+
+      <div class="preview-box" data-gallery="box">
+        <div class="preview-box__details">
+          <ion-icon data-gallery="close" name="close-circle-outline"></ion-icon>
+        </div>
+        <div class="preview-box__image" data-gallery="img"></div>
+      </div>
+
+      <div class="overlay"></div>
+    </section>
+
+    <section class="testimonials py--lg" id="testimonials">
+      <div class="container text-center">
+        <span class="subheading mb--sm">Depoimentos</span>
+        <h2 class="heading-secondary mb--xl">Depois de experimentar, você não vai querer sair!</h2>
+      </div>
+
+      <div class="slider">
+        <div class="slide" data-slides data-slide="1">
+          <div class="testimonials__box">
+            <h4 class="testimonials__title">Ótimo custo benefício!</h4>
+            <blockquote class="testimonials__description">
+              Refeições baratas e como adoro comida vegana, simplesmente amei esse plano da VeganFood. Atualmente sou assinante do plano básico e futuramente migrarei para o plano premium.
+            </blockquote>
+
+            <figure class="testimonials__author">
+              <img class="testimonials__img" src="img/customers/jade.jpg" alt="Foto da cliente Jade Suelen Vaz">
+              <p class="testimonials__name">Jade Suelen Vaz</p>
+              <p class="testimonials__work">UI/UX Design</p>
+            </figure>
+          </div>
+        </div>
+
+        <div class="slide" data-slides data-slide="2">
+          <div class="testimonials__box">
+            <h4 class="testimonials__title">Eficiência a todo custo!</h4>
+            <blockquote class="testimonials__description mb--sm">
+              VeganFood me salvou. Recentemente fui promovido a um cargo de direção na empresa em que trabalho e por chegar muito cansado em casa, mal tenho tempo para cozinhar.
+            </blockquote>
+
+            <figure class="testimonials__author">
+              <img class="testimonials__img" src="img/customers/tarique.jpg" alt="Foto do cliente Tarique Layon">
+              <p class="testimonials__name">Tarique Layon</p>
+              <p class="testimonials__work">Administrador</p>
+            </figure>
+          </div>
+        </div>
+
+        <div class="slide" data-slides data-slide="3">
+          <div class="testimonials__box">
+            <h4 class="testimonials__title">Serviço de qualidade!</h4>
+            <blockquote class="testimonials__description mb--sm">
+              Parabenizo a empresa pelo ótimo serviço prestado, principalmente a comida que é deliciosa. A ideia de escolhermos os nutrientes e vocês montarem a dieta a partir disso é sensacional
+            </blockquote>
+
+            <figure class="testimonials__author">
+              <img class="testimonials__img" src="img/customers/claudio.jpg" alt="Foto do cliente Claudio Oliveira">
+              <p class="testimonials__name">Claudio Oliveira</p>
+              <p class="testimonials__work">Advogado</p>
+            </figure>
+          </div>
+        </div>
+
+        <div class="slide" data-slides data-slide="4">
+          <div class="testimonials__box">
+            <h4 class="testimonials__title">Adorei a comida!</h4>
             <blockquote class="testimonials__description mb--sm">
               Recomendo a empresa VeganFood. Minha família adorou, somos veganos e o serviço facilitado das refeições nos fez economizar tempo, pois somos muito ocupados.
             </blockquote>
-            <cite class="testimonials__name">&mdash; Bárbara Lima</cite>
-          </figure>
-        </div>
-      </div>
 
-      <div class="testimonials__gallery">
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-1.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-2.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-3.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-4.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-5.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-6.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-7.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-8.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-9.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-10.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-11.jpg" alt="Foto de comida no prato">
-        </figure>
-        <figure class="gallery__box">
-          <img src="img/gallery/gallery-12.jpg" alt="Foto de comida no prato">
-        </figure>
+            <figure class="testimonials__author">
+              <img class="testimonials__img" src="img/customers/barbara.jpg" alt="Foto da cliente Bárbara Lima">
+              <p class="testimonials__name">Bárbara Lima</p>
+              <p class="testimonials__work">Técnica de Laboratório</p>
+            </figure>
+          </div>
+        </div>
+
+        <button class="slider__btn slider__btn--left">&larr;</button>
+        <button class="slider__btn slider__btn--right">&rarr;</button>
+        <div class="dots"></div>
       </div>
     </section>
 
-    <section class="pricing py--lg section--fade" id="price">
+    <section class="pricing py--lg" id="price">
       <div class="container">
         <span class="subheading--section mb--sm">Planos</span>
         <h2 class="heading-secondary mb--xxl">Alimente-se bem sem gastar muito</h2>
       </div>
 
-      <div class="container pricing__grid">
+      <div class="container pricing__grid" data-aos="zoom-in-left">
         <div class="pricing__plan pricing__plan--basic">
           <header class="plan__header text-center">
             <p class="plan__name">Básico</p>
             <p class="plan__price mb--sm"><span>R$</span>300</p>
             <p class="plan__description">Mensal. Apenas R$ 10 por dia! </p>
           </header>
+
           <ul class="pricing__list">
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>2 refeições</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>Renovação automática</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>Frete gratuito</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="close-outline"></ion-icon>
             </li>
           </ul>
+
           <div class="plan__sign text-center">
             <a class="btn btn--primary" href="#">Alimente-se bem</a>
           </div>
@@ -294,24 +383,29 @@
             <p class="plan__price mb--sm"><span>R$</span>600</p>
             <p class="plan__description">Mensal. Apenas R$ 20 por dia! </p>
           </header>
+
           <ul class="pricing__list">
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>4 refeições</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>Renovação automática</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="checkmark-outline"></ion-icon>
               <span>Frete gratuito</span>
             </li>
+
             <li class="pricing__list__item">
               <ion-icon class="pricing__icon" name="close-outline"></ion-icon>
               <span>Entregas no máximo 2 dias úteis</span>
             </li>
           </ul>
+
           <div class="plan__sign text-center">
             <a class="btn btn--primary" href="#">Alimente-se bem</a>
           </div>
@@ -322,132 +416,169 @@
         <aside class="pricing__description text-center">*Os preços incluem todos os impostos aplicáveis. Você pode cancelar a qualquer momento.</aside>
       </div>
     </section>
-
-    <section class="newsletter section--fade" id="newsletter">
-      <div class="container newsletter__grid">
-        <div class="newsletter__box">
-          <h3 class="heading-tertiary">Assine e fique por dentro das novidades</h3>
-          <form class="newsletter__form" action="#">
-            <div>
-              <input id="nome" type="text" placeholder="Rose Silva" required>
-            </div>
-            <div>
-              <input id="email" type="email" placeholder="eu@exemplo.com" required>
-            </div>
-            <button class="btn btn--form">Assinar</button>
-          </form>
-        </div>
-
-        <div class="blog">
-          <h3 class="heading-tertiary">Últimas do Blog</h3>
-          <ul class="blog__list">
-            <li class="mb--sm">
-              <a class="blog__link" href="#">
-                <p class="blog__date">22.08.2021</p>
-                <p class="blog__description">Alimentos mais saudáveis para sua reeducação alimentar.</p>
-              </a>
-            </li>
-            <li class="mb--sm">
-              <a class="blog__link" href="#">
-                <p class="blog__date">15.08.2021</p>
-                <p class="blog__description">
-                  os impactos da comida vegana em sua vida.
-                </p>
-              </a>
-            </li>
-            <li class="mb--sm">
-              <a class="blog__link" href="#">
-                <p class="blog__date">14.08.2021</p>
-                <p class="blog__description">
-                  Os motivos para você trocar a carne animal por soja.
-                </p>
-              </a>
-            </li>
-            <li class="mb--sm">
-              <a class="blog__link" href="#">
-                <p class="blog__date">13.08.2021</p>
-                <p class="blog__description">
-                  Diferenças entre comida vegana e vegetariana.
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="newsletter__redes">
-          <h3 class="heading-tertiary">Instagram</h3>
-          <p class="insta">Seja o primeiro a aparecer aqui. Publique uma imagem no instagram com a hash #veganFood</p>
-          <h3 class="heading-tertiary mt--sm">Curta nossa página</h3>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer section--fade">
-      <div class="container footer__grid">
-        <div class="footer__info">
-          <a class="mb--sm" href="#"><img class="footer__logo" src="img/logo.png" alt="Logo do VeganFood"></a>
-          <ul class="sociais">
-            <li>
-              <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.instagram.com/">
-                <ion-icon class="icon__redes" name="logo-instagram"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.twitter.com/">
-                <ion-icon class="icon__redes" name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.facebook.com/">
-                <ion-icon class="icon__redes" name="logo-facebook"></ion-icon>
-              </a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.whatsapp.com/">
-                <ion-icon class="icon__redes" name="logo-whatsapp"></ion-icon>
-              </a>
-            </li>
-          </ul>
-
-          <div class="footer__copy">
-            <p class="copyright">
-              Desenvolvido por <span>Carla Santos</span>
-            </p>
-            <a href="https://github.com/carla-santos/veganfood" target="_blank" rel="noopener noreferrer">
-              <img class="github" src="img/github.svg" alt="Github">
-            </a>
-          </div>
-        </div>
-
-        <div class="apresentation">
-          <p class="heading__footer">Conheça-nos</p>
-          <address class="contacts">
-            <p class="mb--sm">
-              Rua Praia do monte, 135 - Rio de Janeiro/RJ
-            </p>
-            <p>
-              <a class="footer__link" href="tel:+55219999-9999">(21) 9999-9999</a>
-            </p>
-          </address>
-        </div>
-
-        <div class="payments">
-          <p class="heading__footer">Formas de pagamento</p>
-          <ul class="payment">
-            <li>
-              <ion-icon class="icon__pay" name="logo-paypal"></ion-icon>
-            </li>
-            <li>
-              <ion-icon class="icon__pay" name="cash-outline"></ion-icon>
-            </li>
-            <li>
-              <ion-icon class="icon__pay" name="card-outline"></ion-icon>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
   </main>
+
+  <section class="newsletter" id="newsletter">
+    <div class="container newsletter__grid">
+      <article class="newsletter__box">
+        <h3 class="heading-tertiary">Assine e fique por dentro das novidades</h3>
+        <form class="newsletter__form" action="#">
+          <div>
+            <input id="nome" type="text" placeholder="Rose Silva" required>
+          </div>
+          <div>
+            <input id="email" type="email" placeholder="eu@exemplo.com" required>
+          </div>
+          <button class="btn btn--form">Assinar</button>
+        </form>
+      </article>
+
+      <article class="blog">
+        <h3 class="heading-tertiary">Últimas do Blog</h3>
+        <ul class="blog__list">
+          <li class="mb--sm">
+            <a class="blog__link" href="#">
+              <p class="blog__date">22.08.2021</p>
+              <p class="blog__description">Alimentos mais saudáveis para sua reeducação alimentar.</p>
+            </a>
+          </li>
+          <li class="mb--sm">
+            <a class="blog__link" href="#">
+              <p class="blog__date">15.08.2021</p>
+              <p class="blog__description">
+                os impactos da comida vegana em sua vida.
+              </p>
+            </a>
+          </li>
+          <li class="mb--sm">
+            <a class="blog__link" href="#">
+              <p class="blog__date">14.08.2021</p>
+              <p class="blog__description">
+                Os motivos para você trocar a carne animal por soja.
+              </p>
+            </a>
+          </li>
+          <li class="mb--sm">
+            <a class="blog__link" href="#">
+              <p class="blog__date">13.08.2021</p>
+              <p class="blog__description">
+                Diferenças entre comida vegana e vegetariana.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <div class="newsletter__redes">
+        <h3 class="heading-tertiary">Instagram</h3>
+        <p class="insta">Seja o primeiro a aparecer aqui. Publique uma imagem no instagram com a hash #veganFood</p>
+        <h3 class="heading-tertiary mt--sm">Curta nossa página</h3>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" data-aos="zoom-in">
+    <div class="container footer__grid">
+      <div class="logo-col">
+        <a href="#" class="footer__logo">
+          <img class="logo" alt="VeganFood" src="img/logo.png" width="100" height="100">
+        </a>
+
+        <ul class="social-links">
+          <li>
+            <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.instagram.com/">
+              <ion-icon class="icon__redes" name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.twitter.com/">
+              <ion-icon class="icon__redes" name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.facebook.com/">
+              <ion-icon class="icon__redes" name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noreferrer noopener" class="footer__link" href="https://www.whatsapp.com/">
+              <ion-icon class="icon__redes" name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="address-col">
+        <p class="footer__heading">Contato</p>
+        <address class="contacts">
+          <p class="address">
+            Rua Praia do monte, 135 - Rio de Janeiro/RJ
+          </p>
+          <p>
+            <a class="footer__link" href="tel:+55219999-9999">
+              9999-9999
+            </a>
+            <br />
+            <a class="footer__link" href="mailto:email@veganfood.com.br">
+              email@veganfood.com.br
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <nav class="nav-col">
+        <p class="footer__heading">Conta</p>
+        <ul class="footer__nav">
+          <li><a class="footer__link" href="#">Criar conta</a></li>
+          <li><a class="footer__link" href="#">Login</a></li>
+          <li><a class="footer__link" href="#">iOS app</a></li>
+          <li><a class="footer__link" href="#">Android app</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer__heading">Empresa</p>
+        <ul class="footer__nav">
+          <li><a class="footer__link" href="#">Sobre a VeganFood</a></li>
+          <li><a class="footer__link" href="#">Para negócios</a></li>
+          <li><a class="footer__link" href="#">Parceiros</a></li>
+          <li><a class="footer__link" href="#">Carreiras</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer__heading">Recursos</p>
+        <ul class="footer__nav">
+          <li><a class="footer__link" href="#">Diretório de receitas</a></li>
+          <li><a class="footer__link" href="#">Centro de ajuda</a></li>
+          <li><a class="footer__link" href="#">Privacidade e termos</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__copy">
+      <p class="copyright">
+        Copyright ©2022 por VeganFood. <span> Desenvolvido por Carla Santos</span>
+      </p>
+      <a href="https://github.com/carla-santos/veganfood" target="_blank" rel="noopener noreferrer">
+        <img class="github" src="img/github.svg" alt="Github">
+      </a>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Script -->
+  <script src="build/js/script.min.js"></script>
+
+  <!-- Inicializa AOS -->
+  <script>
+    AOS.init({
+      delay: 400,
+      duration: 1000,
+    })
+  </script>
 </body>
 
 </html>
