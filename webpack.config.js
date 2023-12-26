@@ -4,7 +4,7 @@ module.exports = {
 	entry: './src/js/main.js',
 	output: {
 		path: path.resolve(__dirname, './build/js'),
-		filename: 'script.js',
+		filename: 'script.min.js',
 	},
 	module: {
 		rules: [
