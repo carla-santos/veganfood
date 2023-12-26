@@ -29,7 +29,8 @@ const jsFiles = function () {
     'src/js/menu-mobile.js',
     'src/js/smooth-scroll.js',
     'src/js/sticky-nav.js',
-    'src/js/animation.fade.js',
+    'src/js/gallery.js',
+    'src/js/slider.js',
   ];
   return files;
 };
