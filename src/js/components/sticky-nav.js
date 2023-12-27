@@ -1,22 +1,21 @@
-function initStickyNav() {
-  const hero = document.querySelector('.hero');
+export default class StickyNav {
+	constructor(section, options) {
+		this.hero = document.querySelector(section);
+		this.options = options;
+	}
 
-  const exibirStickyNav = function (entries) {
-    const ent = entries[0];
-    if (!ent.isIntersecting) {
-      document.body.classList.add('sticky-nav');
-    } else {
-      document.body.classList.remove('sticky-nav');
-    }
-  };
+	exibirStickyNav(entries) {
+		const ent = entries[0];
 
-  const obsOpt = {
-    root: null,
-    threshold: 0,
-    rootMargin: '-84px',
-  };
+		if (!ent.isIntersecting) {
+			document.body.classList.add('sticky-nav');
+		} else {
+			document.body.classList.remove('sticky-nav');
+		}
+	}
 
-  const heroObserver = new IntersectionObserver(exibirStickyNav, obsOpt);
-  heroObserver.observe(hero);
+	init() {
+		const heroObserver = new IntersectionObserver(this.exibirStickyNav, this.options);
+		heroObserver.observe(this.hero);
+	}
 }
-initStickyNav();
