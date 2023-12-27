@@ -1,28 +1,33 @@
-'use strict';
+export default class MenuMobile {
+	constructor(btnMobile) {
+		this.btnMobile = document.querySelector(btnMobile);
+		this.mainNav = document.querySelector('[data-menu="nav"]');
+		this.eventos = ['click', 'touchstart'];
+	}
 
-function initMenuMobile() {
-  const btnMobile = document.querySelector('[data-menu="button"]');
-  const mainNav = document.querySelector('[data-menu="nav"]');
-  const eventos = ['click', 'touchstart'];
+	mostrarMenu(event) {
+		if (event.type === 'touchstart') {
+			event.preventDefault();
+		}
 
-  if (btnMobile) {
-    const mostrarMenu = function (e) {
-      if (e.type === 'touchstart') {
-        e.preventDefault();
-      }
+		this.mainNav.classList.toggle('nav-active');
+		const active = this.mainNav.classList.contains('nav-active');
+		this.btnMobile.setAttribute('aria-expanded', active);
 
-      mainNav.classList.toggle('nav-active');
-      const active = mainNav.classList.contains('nav-active');
-      this.setAttribute('aria-expanded', active);
+		if (active) {
+			this.btnMobile.setAttribute('aria-label', 'Fechar Menu');
+		} else {
+			this.btnMobile.setAttribute('aria-label', 'Abrir Menu');
+		}
+	}
 
-      if (active) {
-        this.setAttribute('aria-label', 'Fechar Menu');
-      } else {
-        this.setAttribute('aria-label', 'Abrir Menu');
-      }
-    };
+	addMenuEvent() {
+		this.eventos.forEach((evento) =>
+			this.btnMobile.addEventListener(evento, this.mostrarMenu.bind(this))
+		);
+	}
 
-    eventos.forEach((evento) => btnMobile.addEventListener(evento, mostrarMenu));
-  }
+	init() {
+		return this.addMenuEvent();
+	}
 }
-initMenuMobile();

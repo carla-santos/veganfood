@@ -10,6 +10,9 @@ export default class SmoothScroll {
 		event.preventDefault();
 		if (event.target.classList.contains('main-nav__link')) {
 			this.scrollConfig(event.target);
+
+			// Fechar a navegação mobile
+			this.mainNav.classList.toggle('nav-active');
 		}
 	}
 
