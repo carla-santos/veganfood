@@ -4,7 +4,7 @@ export default class StickyNav {
 		this.options = options;
 	}
 
-	exibirStickyNav(entries) {
+	static exibirStickyNav(entries) {
 		const ent = entries[0];
 
 		if (!ent.isIntersecting) {
@@ -15,7 +15,7 @@ export default class StickyNav {
 	}
 
 	init() {
-		const heroObserver = new IntersectionObserver(this.exibirStickyNav, this.options);
+		const heroObserver = new IntersectionObserver(this.constructor.exibirStickyNav, this.options);
 		heroObserver.observe(this.hero);
 	}
 }

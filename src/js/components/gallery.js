@@ -1,34 +1,45 @@
-function initGallery() {
-  const galleryContainer = document.querySelector('[data-gallery="container"]');
-  const previewBox = document.querySelector('[data-gallery="box"]');
-  const previewImage = document.querySelector('[data-gallery="img"]');
-  const btnClose = document.querySelector('[data-gallery="close"]');
-  const overlay = document.querySelector('.overlay');
+export default class Gallery {
+	constructor() {
+		this.galleryContainer = document.querySelector('[data-gallery="container"]');
+		this.previewBox = document.querySelector('[data-gallery="box"]');
+		this.previewImage = document.querySelector('[data-gallery="img"]');
+		this.btnClose = document.querySelector('[data-gallery="close"]');
+		this.overlay = document.querySelector('.overlay');
+	}
 
-  const limparHTML = function () {
-    while (previewImage.firstChild) {
-      previewImage.removeChild(previewImage.firstChild);
-    }
-  };
+	openModalImg(event) {
+		if (event.target.classList.contains('gallery__img')) {
+			this.constructor.limparHTML(this.previewImage);
 
-  const openModalImg = function (e) {
-    if (e.target.classList.contains('gallery__img')) {
-      limparHTML();
-      previewBox.classList.add('active');
-      overlay.classList.add('active');
+			this.previewBox.classList.add('active');
+			this.overlay.classList.add('active');
 
-      const imgSrc = e.target.dataset.gallery;
-      previewImage.insertAdjacentHTML('beforeend', `<img src="img/gallery/gallery-${imgSrc}.jpg">`);
-    }
-  };
+			const imgSrc = event.target.dataset.gallery;
+			this.previewImage.insertAdjacentHTML(
+				'beforeend',
+				`<img src="img/gallery/gallery-${imgSrc}.jpg">`
+			);
+		}
+	}
 
-  const closeModalImg = function () {
-    previewBox.classList.remove('active');
-    overlay.classList.remove('active');
-  };
+	closeModalImg() {
+		this.previewBox.classList.remove('active');
+		this.overlay.classList.remove('active');
+	}
 
-  galleryContainer.addEventListener('click', openModalImg);
-  btnClose.addEventListener('click', closeModalImg);
-  overlay.addEventListener('click', closeModalImg);
+	addEvent() {
+		this.galleryContainer.addEventListener('click', this.openModalImg.bind(this));
+		this.btnClose.addEventListener('click', this.closeModalImg.bind(this));
+		this.overlay.addEventListener('click', this.closeModalImg.bind(this));
+	}
+
+	static limparHTML(element) {
+		while (element.firstChild) {
+			element.removeChild(element.firstChild);
+		}
+	}
+
+	init() {
+		return this.addEvent();
+	}
 }
-initGallery();
