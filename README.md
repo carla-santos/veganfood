@@ -103,4 +103,22 @@ Utilize uma ferramenta como o [Live Server](https://marketplace.visualstudio.com
 
 ### 1.0.0
 - Lançamento inicial<br>
-30.08.2022
+
+### 2.1.0
+
+📦 Dependências
+
+- Adiciona as dependências de desenvolvimento: **babel, babel-loader, eslint, eslint-config-prettier, webpack e webpack-cli.** 
+- Atualiza as dependências de desenvolvimento: **autoprefixer, cssnano, gulp-sass, postcss e sass.**
+- Elimina as dependências de desenvolvimento: **gulp-concat, gulp-rename e gulp-terser.**
+
+🧰 Outras mudanças
+
+- Atualiza arquivo de configuração do Webpack.
+- Refatora Scroll Suave.
+-  Cria pasta components .
+-  Elimina componenente animation fade.
+-  Refatora Menu mobile.
+-  Refatora navegação fixa.
+-  Refatora galeria.
+-  Refatora Slider.
