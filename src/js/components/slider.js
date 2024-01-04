@@ -1,87 +1,85 @@
-function initSlider() {
-  const slides = document.querySelectorAll('[data-slides]');
-  const btnLeft = document.querySelector('.slider__btn--left');
-  const btnRight = document.querySelector('.slider__btn--right');
-  const dotsContainer = document.querySelector('.dots');
+export default class Slider {
+	constructor() {
+		this.slides = document.querySelectorAll('[data-slides]');
+		this.btnLeft = document.querySelector('.slider__btn--left');
+		this.btnRight = document.querySelector('.slider__btn--right');
+		this.dotsContainer = document.querySelector('.dots');
 
-  // Inicia slide atual
-  let slideAtual = 0;
+		// Inicia slide atual
+		this.slideAtual = 0;
 
-  // Exibe a quantidade máxima de slides
-  const maxSlides = slides.length;
+		// Exibe a quantidade máxima de slides
+		this.maxSlides = this.slides.length;
+	}
 
-  // Criar os pontos
-  const createDots = function () {
-    slides.forEach((_, i) => {
-      dotsContainer.insertAdjacentHTML(
-        'beforeend',
-        `<button class="dots__dot" data-slide="${i}"></button>`,
-      );
-    });
-  };
+	// Criar os pontos
+	createDots() {
+		this.slides.forEach((_, i) => {
+			this.dotsContainer.insertAdjacentHTML(
+				'beforeend',
+				`<button class="dots__dot" data-slide="${i}"></button>`
+			);
+		});
+	}
 
-  // Ativar qual é o ponto atual.
-  const activateDot = function (slide) {
-    document
-      .querySelectorAll('.dots__dot')
-      .forEach((dot) => dot.classList.remove('dots__dot--active'));
+	// Ativar qual é o ponto atual.
+	static activateDot(slide) {
+		document
+			.querySelectorAll('.dots__dot')
+			.forEach((dot) => dot.classList.remove('dots__dot--active'));
 
-    // Selecionar o elemento com a classe e com o atributo de data-slide definido.
-    document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active');
-  };
+		// Selecionar o elemento com a classe e com o atributo de data-slide definido.
+		document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active');
+	}
 
-  const goToSlide = function (slide) {
-    slides.forEach((s, i) => {
-      s.style.transform = `translateX(${100 * (i - slide)}%)`;
-    });
+	goToSlide(slide) {
+		this.slides.forEach((s, i) => {
+			s.style.transform = `translateX(${100 * (i - slide)}%)`;
+		});
+	}
 
-    slideAtual = slide;
-  };
+	nextSlide() {
+		if (this.slideAtual === this.maxSlides - 1) {
+			this.slideAtual = 0;
+		} else {
+			this.slideAtual += 1;
+		}
 
-  const nextSlide = function () {
-    if (slideAtual === maxSlides - 1) {
-      slideAtual = 0;
-    } else {
-      slideAtual++;
-    }
+		this.goToSlide(this.slideAtual);
+		this.constructor.activateDot(this.slideAtual);
+	}
 
-    goToSlide(slideAtual);
-    activateDot(slideAtual);
-  };
+	prevSlide() {
+		if (this.slideAtual === 0) {
+			this.slideAtual = this.maxSlides - 1;
+		} else {
+			this.slideAtual -= 1;
+		}
 
-  const prevSlide = function () {
-    if (slideAtual === 0) {
-      slideAtual = maxSlides - 1;
-    } else {
-      slideAtual--;
-    }
+		this.goToSlide(this.slideAtual);
+		this.constructor.activateDot(this.slideAtual);
+	}
 
-    goToSlide(slideAtual);
-    activateDot(slideAtual);
-  };
+	keyGoToSlide(event) {
+		return event.key === 'ArrowLeft' ? this.prevSlide() : this.nextSlide();
+	}
 
-  const init = function () {
-    goToSlide(0);
-    createDots();
-    activateDot(0);
-  };
-  init();
+	dotsGoToSlide(event) {
+		if (event.target.classList.contains('dots__dot')) {
+			const { slide } = event.target.dataset;
+			this.goToSlide(slide);
+			this.constructor.activateDot(slide);
+		}
+	}
 
-  btnRight.addEventListener('click', nextSlide);
-  btnLeft.addEventListener('click', prevSlide);
+	init() {
+		this.goToSlide(0);
+		this.createDots();
+		this.constructor.activateDot(0);
 
-  // Controle deslizante pelo teclado
-  document.addEventListener('keydown', function (e) {
-    e.key === 'ArrowLeft' && prevSlide();
-    e.key === 'ArrowRight' && nextSlide();
-  });
-
-  dotsContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('dots__dot')) {
-      const { slide } = e.target.dataset;
-      goToSlide(slide);
-      activateDot(slide);
-    }
-  });
+		this.btnRight.addEventListener('click', this.nextSlide.bind(this));
+		this.btnLeft.addEventListener('click', this.prevSlide.bind(this));
+		document.addEventListener('keydown', this.keyGoToSlide.bind(this));
+		this.dotsContainer.addEventListener('click', this.dotsGoToSlide.bind(this));
+	}
 }
-initSlider();
